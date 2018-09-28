@@ -1,0 +1,39 @@
+
+<div class="wrapper" style="height:653px;">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Angular Routing</h3>
+            <strong>TASK 1</strong>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li routerLinkActive="active">
+                <a routerLink="home">
+                    <i class="glyphicon glyphicon-home"></i>
+                    Home
+                </a>
+
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="about">
+                    <i class="glyphicon glyphicon-briefcase"></i>
+                    About
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="pages">
+                    <i class="glyphicon glyphicon-duplicate"></i>
+                    Pages
+                </a>
+
+            </li>   
+
+        </ul>
+
+
+    </nav>
+    <br />
+
+    <router-outlet></router-outlet>
+</div>

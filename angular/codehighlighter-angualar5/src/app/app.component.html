@@ -1,0 +1,80 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Code Highlighter Specially Java
+  </h1>
+  <textarea highlight-js [options]="{}" [lang]="'java'">
+	package com.orileo.melloe.model.promocode;
+
+	import com.fasterxml.jackson.annotation.JsonFormat;
+	import com.orileo.melloe.model.customer.DiscountDetails;
+	import io.swagger.annotations.ApiModelProperty;
+	import lombok.EqualsAndHashCode;
+	import lombok.Getter;
+	import lombok.Setter;
+	import lombok.ToString;
+
+	import javax.persistence.*;
+	import javax.validation.constraints.NotNull;
+	import javax.validation.constraints.Size;
+	import java.io.Serializable;
+	import java.util.Date;
+
+	@Setter
+	@Getter
+	@EqualsAndHashCode
+	@ToString
+	@Entity
+	@Table(name="promocode")
+	public class PromoCode implements Serializable{
+		private static final long serialVersionUID = -739171461836386624L;
+
+	    @Id
+		@ApiModelProperty(notes = "The Promocode public ID")
+		@NotNull
+		@Size(max = 30)
+		@Column(name = "promo_code", length = 30, nullable = false, unique = true)
+		private String promoCode;
+
+		@ApiModelProperty(notes = "Details of the discount for this Promo", required = true)
+		@NotNull
+		@Embedded
+		private DiscountDetails discountDetails;
+
+		@ApiModelProperty(notes = "Start date of the promocode for particular customer")
+		@NotNull
+		@Temporal(TemporalType.TIMESTAMP)
+		@JsonFormat(pattern="yyyy-MM-dd")
+		@Column(name="start_date")
+		private Date startDate;
+
+		@ApiModelProperty(notes = "End date of the promocode for particular customer")
+		@NotNull
+		@Temporal(TemporalType.TIMESTAMP)
+		@JsonFormat(pattern="yyyy-MM-dd")
+		@Column(name="end_date")
+		private Date endDate;
+
+		@ApiModelProperty(notes = "The type of the offer for the promo")
+		@Size(max = 50)
+		@Column(name="offer_type",length = 50)
+		private String offerType;
+
+		@ApiModelProperty(notes = "Is this Promo active")
+		@NotNull
+		@Column(name="is_active")
+		private boolean isActive;
+
+		@ApiModelProperty(notes = "Is this Promo fixed")
+		@NotNull
+		@Column(name="is_fixed")
+		private boolean isFixed;
+
+		@ApiModelProperty(notes = "The description of the Promo")
+		@Size(max = 250)
+		@Column(name="description",length = 250)
+		private String description;
+	}
+
+  </textarea>
+</div>

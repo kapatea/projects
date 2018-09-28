@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: employee
+
+server:
+  port: 9999
+  context-path: /auth
+  use-forward-headers: false
+
+keystore:
+  password: secret
+security:
+  basic:
+    enabled: false
